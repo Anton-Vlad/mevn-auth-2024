@@ -1,0 +1,30 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "date-fn": "^0.0.2",
+    "lodash": "^4.17.21",
+    "pinia": "^2.1.7",
+    "remixicon": "^4.1.0",
+    "vee-validate": "^4.12.5",
+    "vite-plugin-vuetify": "^2.0.1",
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5",
+    "vuetify": "^3.5.4"
+  },
+  "devDependencies": {
+    "@mdi/font": "^7.4.47",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "sass": "^1.70.0",
+    "sass-loader": "^14.1.0",
+    "vite": "^5.1.0",
+    "vue-cli-plugin-vuetify": "^2.5.8"
+  }
+}
