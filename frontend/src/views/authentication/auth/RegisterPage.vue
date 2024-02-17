@@ -1,6 +1,6 @@
 <script setup>
 import Logo from '@/layouts/full/logo/LogoDark.vue';
-// import AuthRegister from '../authForms/AuthRegister.vue';
+import AuthRegister from '../authForms/AuthRegister.vue';
 </script>
 
 <template>
@@ -25,7 +25,7 @@ import Logo from '@/layouts/full/logo/LogoDark.vue';
                                         <!---Left Part Logo -->
 
                                         <!---Left Part Form-->
-                                        <!-- <AuthRegister /> -->
+                                        <AuthRegister />
                                         <!---Left Part Form-->
                                     </v-card-text>
                                 </v-card>

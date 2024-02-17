@@ -1,6 +1,6 @@
 <script setup>
 import Logo from '@/layouts/full/logo/LogoDark.vue';
-// import AuthLogin from '../authForms/AuthLogin.vue';
+import AuthLogin from '../authForms/AuthLogin.vue';
 </script>
 
 <template>
@@ -16,17 +16,22 @@ import Logo from '@/layouts/full/logo/LogoDark.vue';
                                     <v-card-text class="pa-9">
                                         <!---Left Part Logo -->
                                         <v-row>
-                                            <v-col cols="12" class="text-center">
-                                                <Logo />
-                                                <h2 class="text-secondary text-h2 mt-8">Hi, Welcome Back</h2>
-                                                <h4 class="text-disabled text-h4 mt-3">Enter your credentials to continue
+                                            <v-col cols="7" class="text-left">
+                                                <h2 class="text-secondary text-h2">
+                                                    Hi, Welcome Back
+                                                </h2>
+                                                <h4 class="text-disabled text-h4">
+                                                    Login in to your account
                                                 </h4>
+                                            </v-col>
+                                            <v-col cols="5" class="text-right">
+                                                <Logo />
                                             </v-col>
                                         </v-row>
                                         <!---Left Part Logo -->
 
                                         <!---Left Part Form-->
-                                        <!-- <AuthLogin /> -->
+                                        <AuthLogin />
                                         <!---Left Part Form-->
                                     </v-card-text>
                                 </v-card>
