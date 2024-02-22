@@ -1,25 +1,32 @@
 <script setup>
 import { ref } from 'vue';
 import Google from '@/assets/images/auth/social-google.svg';
-// import { useAuthStore } from '@/stores/auth';
+import { useAuthStore } from '@/stores/auth';
 import { Form } from 'vee-validate';
+import { router } from "@/router";
 
 const checkbox = ref(false);
 const valid = ref(false);
 const show1 = ref(false);
 //const logform = ref();
 const password = ref('admin123');
-const username = ref('info@codedthemes.com');
+const email = ref('info@codedthemes.com');
 const passwordRules = ref([
     (v) => !!v || 'Password is required',
     (v) => (v && v.length <= 10) || 'Password must be less than 10 characters'
 ]);
 const emailRules = ref([(v) => !!v || 'E-mail is required', (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid']);
 
+const authStore = useAuthStore();
+
+console.log("AJUNGE AICI", authStore.user)
+if (authStore.isLoggedIn) {
+    router.push("/");
+}
+
 function validate(values, { setErrors }) {
     console.log('SUBMIT FORM AFTER VALIDATION')
-    // const authStore = useAuthStore();
-    // return authStore.login(username.value, password.value).catch((error) => setErrors({ apiError: error }));
+    return authStore.login(email.value, password.value).catch((error) => setErrors({ apiError: error }));
 }
 </script>
 
@@ -41,7 +48,7 @@ function validate(values, { setErrors }) {
         <!-- <h5 class="text-h5 text-center my-4 mb-8">Sign in with Email address</h5> -->
         
         <Form @submit="validate" class="mt-7 loginForm" v-slot="{ errors, isSubmitting }">
-            <v-text-field v-model="username" :rules="emailRules" label="Email Address / Username" class="mt-4 mb-8" required
+            <v-text-field v-model="email" :rules="emailRules" label="Email Address" class="mt-4 mb-8" required
                 density="comfortable" hide-details="auto" variant="outlined" color="primary">
             </v-text-field>
             <v-text-field v-model="password" :rules="passwordRules" label="Password" required density="comfortable"
