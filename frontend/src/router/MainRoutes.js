@@ -21,6 +21,31 @@ const MainRoutes = {
         path: '/starter',
         component: () => import('@/views/StarterPage.vue')
       },
+      {
+        name: 'Typography',
+        path: '/utils/typography',
+        component: () => import('@/views/pages/utilities/TypographyPage.vue')
+      },
+      {
+        name: 'Shadows',
+        path: '/utils/shadows',
+        component: () => import('@/views/pages/utilities/ShadowPage.vue')
+      },
+      {
+        name: 'Colors',
+        path: '/utils/colors',
+        component: () => import('@/views/pages/utilities/ColorPage.vue')
+      },
+      {
+        name: 'Tabler Icons',
+        path: '/icons/tabler',
+        component: () => import('@/views/pages/utilities/TablerIcons.vue')
+      },
+      {
+        name: 'Material Icons',
+        path: '/icons/material',
+        component: () => import('@/views/pages/utilities/MaterialIcons.vue')
+      },
     ]
 };
 
