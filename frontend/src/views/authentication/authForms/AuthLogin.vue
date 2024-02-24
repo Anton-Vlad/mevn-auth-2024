@@ -19,7 +19,6 @@ const emailRules = ref([(v) => !!v || 'E-mail is required', (v) => /.+@.+\..+/.t
 
 const authStore = useAuthStore();
 
-console.log("AJUNGE AICI", authStore.user)
 if (authStore.isLoggedIn) {
     router.push("/");
 }

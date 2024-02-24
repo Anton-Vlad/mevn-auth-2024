@@ -6,13 +6,9 @@ import UiParentCard from '@/components/shared/UiParentCard.vue';
 
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '@/stores/auth';
-import { useUsersStore } from '@/stores/users';
 
 const authStore = useAuthStore();
 const { user: authUser } = storeToRefs(authStore);
-
-const usersStore = useUsersStore();
-const { profile: profileData } = storeToRefs(usersStore);
 
 const page = ref({ title: 'Sample Page' });
 const breadcrumbs = shallowRef([
@@ -39,8 +35,9 @@ const breadcrumbs = shallowRef([
                     <h1>Hi {{authUser?.name}}!</h1>
                     <p>You're logged in with Vue 3 + JWT with Refresh Tokens!!</p>
 
-                    <b>{{ profileData?.email }}</b>
+                    <b>{{ authUser?.email }}</b>
 
+                    <p class="my-4">
                     Lorem ipsum dolor sit amen, consenter nipissing eli, sed do elusion tempos incident ut laborers et doolie
                     magna alissa. Ut enif ad
                     minim venice, quin nostrum exercitation illampu laborings nisi ut liquid ex ea commons construal. Duos aube
@@ -48,6 +45,7 @@ const breadcrumbs = shallowRef([
                     reprehended in voltage veil esse colum doolie eu fujian bulla parian. Exceptive sin ocean cuspidate non
                     president, sunk in culpa qui
                     officiate descent molls anim id est labours.
+                    </p>
                 </UiParentCard>
             </v-col>
         </v-row>

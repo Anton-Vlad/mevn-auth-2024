@@ -1,14 +1,16 @@
 <script setup>
 import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import { SettingsIcon, LogoutIcon, UserIcon } from 'vue-tabler-icons';
-// import { useAuthStore } from '@/stores/auth';
+import { useAuthStore } from '@/stores/auth';
 
 const swt1 = ref(true);
 const swt2 = ref(false);
-// const authStore = useAuthStore();
+const authStore = useAuthStore();
+const { user: authUser } = storeToRefs(authStore);
 
 const logoutUser = () => {
-    // authStore.logout()
+    authStore.logout();
 }
 </script>
 
@@ -18,7 +20,7 @@ const logoutUser = () => {
         <!-- profile DD -->
         <!-- ---------------------------------------------- -->
         <div class="pa-4">
-            <h4 class="mb-n1">Good Morning, <span class="font-weight-regular">John Doe</span></h4>
+            <h4 class="mb-n1">Good Morning, <span v-if="authUser" class="font-weight-regular">{{ authUser.name }}</span></h4>
             <span class="text-subtitle-2 text-medium-emphasis">Project admin</span>
     
             <v-text-field persistent-placeholder placeholder="Search" class="my-3" color="primary" variant="outlined"

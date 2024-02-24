@@ -67,6 +67,21 @@ const logoutUser = asyncHandler(async (req, res) => {
     res.status(200).json({ message: 'User logged out' })
 });
 
+// @des     Trigger a jwt token refresh
+// route    POST /api/users/refresh-token
+// @access  Private
+const refreshUserToken = asyncHandler(async (req, res) => {
+    // in the req you have access to the logged-in user.
+
+    generateToken(res, req.user._id);
+    const user = {
+        _id: req.user._id,
+        name: req.user.name,
+        email: req.user.email
+    }
+    res.status(200).json(user)
+});
+
 // @des     Get user profile
 // route    GET /api/users/profile
 // @access  Private
@@ -114,5 +129,6 @@ export {
     registerUser,
     logoutUser,
     getUserProfile,
-    updateUserProfile
+    updateUserProfile,
+    refreshUserToken
 };
