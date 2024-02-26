@@ -16,6 +16,15 @@ export const useUsersStore = defineStore({
             fetchWrapper.get(`${baseUrl}/profile`)
                 .then(profile => this.profile = profile)
                 .catch(error => this.profile = { error })
-        }
+        },
+        async updateProfile(name, email, password) {
+            this.profile = await fetchWrapper.put(
+              `${baseUrl}/profile`,
+              { name, email, password },
+              { credentials: "include" }
+            );
+            
+            console.log('USER UPDATED', this.profile)
+          },
     }
 });

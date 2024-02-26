@@ -9,6 +9,7 @@ import {
   DashboardIcon,
   BrandChromeIcon,
   HelpIcon,
+  UserEditIcon,
 } from "vue-tabler-icons";
 
 // export interface menu {
@@ -94,6 +95,11 @@ const sidebarItem = [
     ],
   },
   { divider: true },
+  {
+    title: "Profile Page",
+    icon: UserEditIcon,
+    to: "/account/profile",
+  },
   {
     title: "Sample Page",
     icon: BrandChromeIcon,

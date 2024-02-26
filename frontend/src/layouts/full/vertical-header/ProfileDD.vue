@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { SettingsIcon, LogoutIcon, UserIcon } from 'vue-tabler-icons';
 import { useAuthStore } from '@/stores/auth';
+import { router } from "@/router";
 
 const swt1 = ref(true);
 const swt2 = ref(false);
@@ -11,6 +12,10 @@ const { user: authUser } = storeToRefs(authStore);
 
 const logoutUser = () => {
     authStore.logout();
+}
+
+const goToProfile = () => {
+    router.push("/account/profile");
 }
 </script>
 
@@ -73,7 +78,7 @@ const logoutUser = () => {
                             <UserIcon size="20" class="mr-2" />
                         </template>
     
-                        <v-list-item-title class="text-subtitle-2"> Social Profile</v-list-item-title>
+                        <v-list-item-title @click="goToProfile()" class="text-subtitle-2">Profile</v-list-item-title>
     
                         <template v-slot:append>
                             <v-chip color="warning" class="text-white" text="02" variant="flat" size="small" />

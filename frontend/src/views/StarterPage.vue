@@ -30,12 +30,9 @@ const breadcrumbs = shallowRef([
         <BaseBreadcrumb :title="page.title" :breadcrumbs="breadcrumbs"></BaseBreadcrumb>
         <v-row>
             <v-col cols="12" md="12">
-                <UiParentCard title="Simple Title">
+                <UiParentCard :title="'Hi there, ' + authUser?.name + '!'">
 
-                    <h1>Hi {{authUser?.name}}!</h1>
-                    <p>You're logged in with Vue 3 + JWT with Refresh Tokens!!</p>
-
-                    <b>{{ authUser?.email }}</b>
+                    <p>You're logged in with <b>{{ authUser?.email }}</b> + JWT with Refresh Tokens!!</p>
 
                     <p class="my-4">
                     Lorem ipsum dolor sit amen, consenter nipissing eli, sed do elusion tempos incident ut laborers et doolie
